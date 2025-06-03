@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lanzadera de Webapps</title>
+  <style>
+    body {
+      background-color: #FFF9C4; /* Amarillo pastel claro */
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 5px solid #3498db;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #333;
+    }
+    header h2 {
+      margin: 10px 0 0 0;
+      font-size: 1em;
+    }
+    header h2 a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    section.app {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    section.app h2 {
+      margin-bottom: 15px;
+      color: #3498db;
+      font-size: 2em; /* Hacer el título más grande */
+      font-weight: bold; /* Título en negrita */
+    }
+    section.app p {
+      margin: 0 auto 15px auto;
+      line-height: 1.5;
+      color: #555;
+      max-width: 700px;
+    }
+    section.app a {
+      display: inline-block;
+      padding: 8px 16px; /* Botón un poco más pequeño */
+      text-decoration: none;
+      color: #fff;
+      background-color: #3498db;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    section.app a:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>DREAM WEBAPPS</h1>
+      <h2><a href="https://www.youtube.com/@rafgim" target="_blank">© By Rafael Gimeno</a></h2>
+    </header>
+
+    <section class="app">
+      <h2>Dream it 1.0</h2>
+      <p>
+        DREAM it 1.0 permite cargar archivos MIDI y al tocar las teclas del piano la canción se reproduce nota a nota siguiendo el ritmo e intensidad del usuario, dando la sensación de estar tocando el piano sin errores (Android/PC).
+      </p>
+      <a href="https://rafgim.github.io/" target="_blank">Abrir Dream it 1.0</a>
+    </section>
+
+    <section class="app">
+      <h2>Dream it 2.0</h2>
+      <p>
+        DREAM it 2.0 permite tocar sin fallos y seguir la partitura(.xml, .musicxml, .mxl) corrigiendo en tiempo real cualquier error, registrando tus aciertos y fallos y manteniendo tu dinámica original (Android/PC).
+      </p>
+      <a href="https://rafgim2.github.io/" target="_blank">Abrir Dream it 2.0</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamSync</h2>
+      <p>
+        DreamSync mide la simultaneidad de las manos al tocar escalas, arpegios y ejercicios de Hanon en PC/Android. Registra desincronizaciones en milisegundos, muestra gráficos con resultados y guarda un historial de prácticas en cinco niveles de estudio (110 ms elemental, 80 ms básico, 50 ms intermedio, 30 ms avanzado y 15 ms profesional).
+      </p>
+      <a href="https://rafgim2.github.io/DreamSync/" target="_blank">Abrir DreamSync</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamTwist</h2>
+      <p>
+        DreamTwist permite reproducir cualquier archivo MIDI nota a nota en un dispositivo móvil mediante movimientos de muñeca. En Android y navegadores compatibles funciona directamente; en iOS requiere la app Web MIDI Browser. Pensada para practicar sin teclado convencional, transformando gestos en sonidos.
+      </p>
+      <a href="https://rafgim2.github.io/DreamTwist/" target="_blank">Abrir DreamTwist</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamTouch</h2>
+      <p>
+        DreamTouch emplea realidad aumentada para tocar paneles virtuales que aparecen superpuestos en la cámara y reproducir un archivo MIDI nota a nota. Compatible con entornos AR (por ejemplo, Meta Quest 3) y navegadores WebXR en Android/PC. El usuario “toca” en el aire y el sistema traduce los gestos en ejecución musical. En la versión móvil HTML se toca directamente en la pantalla. (Android/PC/Quest 3)
+      </p>
+      <a href="https://rafgim2.github.io/DreamTouch/" target="_blank">Abrir DreamTouch</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamKeyboard</h2>
+      <p>
+        Con DreamKeyboard basta un teclado QWERTY para reproducir cualquier archivo MIDI nota a nota; al pulsar cualquier tecla se va reproduciendo el archivo MIDI. La intensidad de la nota depende de la fila de la tecla pulsada. No requiere hardware adicional más allá de un navegador WebMIDI en PC/portátil. Ideal para explorar piezas sin disponer de un teclado físico.
+      </p>
+      <a href="https://rafgim2.github.io/DreamKeyboard/" target="_blank">Abrir DreamKeyboard</a>
+    </section>
+
+    <section class="app">
+      <h2>Dreamcolor Hue</h2>
+      <p>
+        Dreamcolor Hue conecta el piano (o teclado MIDI) con luces Philips Hue para que, al tocar, las lámparas cambien de color según la nota o uso del pedal. Requiere Hue Bridge y bombillas Hue, navegador WebMIDI en PC y teclado MIDI. Añade un componente visual al acto de tocar, enriqueciendo la experiencia sensorial.
+      </p>
+      <a href="https://drive.google.com/file/d/15z3-8u28tEJziBYNPLsD_mvcHGL4Z4nI/view" target="_blank">Descargar Dreamcolor Hue</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamEcho</h2>
+      <p>
+        DreamEcho consiste en dos webapps: una para el pianista transmisor y otra para oyentes receptores. Transmite en tiempo real los mensajes MIDI de la interpretación, de modo que cualquier instrumento conectado reproduzca fielmente la interpretación. Permite “conciertos globales” o clases a distancia: el profesor toca y el alumno escucha en su propio piano con toda la expresividad intacta.
+      </p>
+      <a href="https://rafgim2.github.io/DREAMECHOlistener/" target="_blank">Abrir DreamEcho</a>
+    </section>
+
+    <section class="app">
+      <h2>DreamDynamics</h2>
+      <p>
+        DreamDynamics ayuda a entrenar el control dinámico al tocar un piano MIDI. Tras conectar el teclado, el usuario elige una dinámica objetivo (pp, p, mp, mf, f o ff) y ve en tiempo real, mediante una barra codificada por colores, si la velocidad de cada nota se ajusta al rango. Al salirse de los límites, registra un “fallo” para revisarlo posteriormente. Ideal para afinar precisión sonora y entrenar oído y dedos en el control de la intensidad.
+      </p>
+      <a href="https://rafgim2.github.io/DreamDynamics/" target="_blank">Abrir DreamDynamics</a>
+    </section>
+  </div>
+</body>
+</html>
