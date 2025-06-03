@@ -5,8 +5,22 @@
   <title>Lanzadera de Webapps</title>
   <style>
     body {
-      background-color: #FFF9C4; /* Amarillo pastel claro */
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
+      position: relative;
+    }
+    /* Fondo de piano semi-transparente usando la imagen proporcionada */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/rafgim2/DREAMWEBAPPS/main/banneryoutube.png') center center / cover no-repeat;
+      opacity: 0.9;
+      z-index: -1;
     }
     .container {
       max-width: 800px;
@@ -14,7 +28,7 @@
       padding: 20px;
       border: 5px solid #3498db;
       border-radius: 10px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.85);
     }
     header {
       text-align: center;
@@ -40,8 +54,8 @@
     section.app h2 {
       margin-bottom: 15px;
       color: #3498db;
-      font-size: 2em; /* Hacer el título más grande */
-      font-weight: bold; /* Título en negrita */
+      font-size: 2em;
+      font-weight: bold;
     }
     section.app p {
       margin: 0 auto 15px auto;
@@ -51,7 +65,7 @@
     }
     section.app a {
       display: inline-block;
-      padding: 8px 16px; /* Botón un poco más pequeño */
+      padding: 8px 16px;
       text-decoration: none;
       color: #fff;
       background-color: #3498db;
@@ -66,7 +80,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>- PIANO DREAM WEBAPPS -</h1>
+      <h1>DREAM WEBAPPS</h1>
       <h2><a href="https://www.youtube.com/@rafgim" target="_blank">© By Rafael Gimeno</a></h2>
     </header>
 
@@ -81,7 +95,7 @@
     <section class="app">
       <h2>Dream it 2.0</h2>
       <p>
-        DREAM it 2.0 permite tocar sin fallos y seguir la partitura(.xml, .musicxml, .mxl) corrigiendo en tiempo real cualquier error, registrando tus aciertos y fallos y manteniendo tu dinámica original (Android/PC).
+        DREAM it 2.0 permite tocar sin fallos y seguir la partitura (.xml, .musicxml, .mxl) corrigiendo en tiempo real cualquier error, registrando tus aciertos y fallos y manteniendo tu dinámica original (Android/PC).
       </p>
       <a href="https://rafgim2.github.io/" target="_blank">Abrir Dream it 2.0</a>
     </section>
@@ -105,7 +119,7 @@
     <section class="app">
       <h2>DreamTouch</h2>
       <p>
-        DreamTouch emplea realidad aumentada para tocar paneles virtuales que aparecen superpuestos en la cámara y reproducir un archivo MIDI nota a nota. Compatible con entornos AR (por ejemplo, Meta Quest 3) y navegadores WebXR en Android/PC. El usuario “toca” en el aire y el sistema traduce los gestos en ejecución musical. En la versión móvil HTML se toca directamente en la pantalla. (Android/PC/Quest 3)
+        DreamTouch emplea realidad aumentada para tocar paneles virtuales que aparecen superpuestos en la cámara y reproducir un archivo MIDI nota a nota. Compatible con entornos AR (por ejemplo, Meta Quest 3) y navegadores WebXR en Android/PC. El usuario “toca” en el aire y el sistema traduce los gestos en ejecución musical. En la versión móvil HTML se toca directamente en la pantalla (Android/PC/Quest 3).
       </p>
       <a href="https://rafgim2.github.io/DreamTouch/" target="_blank">Abrir DreamTouch</a>
     </section>
@@ -113,7 +127,7 @@
     <section class="app">
       <h2>DreamKeyboard</h2>
       <p>
-        Con DreamKeyboard basta un teclado QWERTY para reproducir cualquier archivo MIDI nota a nota; al pulsar cualquier tecla se va reproduciendo el archivo MIDI. La intensidad de la nota depende de la fila de la tecla pulsada. No requiere hardware adicional más allá de un navegador WebMIDI en PC/portátil. Ideal para explorar piezas sin disponer de un teclado físico.
+        Con DreamKeyboard basta un teclado QWERTY para reproducir cualquier archivo MIDI nota a nota; al pulsar cualquier tecla se va reproduciendo el archivo MIDI. La intensidad de la nota depende de la fila de la tecla pulsada. No requiere hardware adicional más allá de un navegador Web MIDI en PC/portátil. Ideal para explorar piezas sin disponer de un teclado físico.
       </p>
       <a href="https://rafgim2.github.io/DreamKeyboard/" target="_blank">Abrir DreamKeyboard</a>
     </section>
@@ -121,7 +135,7 @@
     <section class="app">
       <h2>Dreamcolor Hue</h2>
       <p>
-        Dreamcolor Hue conecta el piano (o teclado MIDI) con luces Philips Hue para que, al tocar, las lámparas cambien de color según la nota o uso del pedal. Requiere Hue Bridge y bombillas Hue, navegador WebMIDI en PC y teclado MIDI. Añade un componente visual al acto de tocar, enriqueciendo la experiencia sensorial.
+        Dreamcolor Hue conecta el piano (o teclado MIDI) con luces Philips Hue para que, al tocar, las lámparas cambien de color según la nota o uso del pedal. Requiere Hue Bridge y bombillas Hue, navegador Web MIDI en PC y teclado MIDI. Añade un componente visual al acto de tocar, enriqueciendo la experiencia sensorial.
       </p>
       <a href="https://drive.google.com/file/d/15z3-8u28tEJziBYNPLsD_mvcHGL4Z4nI/view" target="_blank">Descargar Dreamcolor Hue</a>
     </section>
