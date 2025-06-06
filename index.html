@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Lanzador de web apps</title>
+  <meta charset="UTF-8" />
+  <title>Lanzador de web apps / Web Apps Launcher</title>
   <style>
     body {
       margin: 0;
@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       position: relative;
     }
+
     /* Fondo de piano semi-transparente usando la imagen proporcionada */
     body::before {
       content: "";
@@ -18,10 +19,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://raw.githubusercontent.com/rafgim2/DREAMWEBAPPS/main/banneryoutube.png') center center / cover no-repeat;
+      background: url('https://raw.githubusercontent.com/rafgim2/DREAMWEBAPPS/main/banneryoutube.png')
+        center center / cover no-repeat;
       opacity: 0.9;
       z-index: -1;
     }
+
     .container {
       max-width: 800px;
       margin: 30px auto;
@@ -29,40 +32,110 @@
       border: 5px solid #3498db;
       border-radius: 10px;
       background-color: rgba(255, 255, 255, 0.85);
+      position: relative;
     }
+
     header {
       text-align: center;
       margin-bottom: 30px;
+      position: relative;
     }
-    header h1 {
+
+    /* Contenedor de selector de idioma en la esquina superior derecha, bajado para no superponerse */
+    .lang-switcher {
+      position: absolute;
+      top: 60px; /* Ajustado para bajar las banderas */
+      right: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-switcher button {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9em;
+      padding: 4px 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.7;
+      transition: opacity 0.2s, border-color 0.2s, background-color 0.2s;
+    }
+
+    .lang-switcher button:hover {
+      opacity: 1;
+      border-color: #3498db;
+    }
+
+    .lang-switcher button.active {
+      opacity: 1;
+      border-color: #3498db;
+      background-color: rgba(52, 152, 219, 0.1);
+    }
+
+    /* Asegurar que las etiquetas img dentro de los botones tengan tamaño adecuado */
+    .lang-switcher img {
+      width: 20px;
+      height: 14px;
+      object-fit: cover;
+    }
+
+    /* Clases para mostrar/ocultar según el idioma */
+    .lang-es .lang-en {
+      display: none !important;
+    }
+    .lang-en .lang-es {
+      display: none !important;
+    }
+    .lang-es .lang-es,
+    .lang-en .lang-en {
+      display: block;
+    }
+
+    header h1,
+    header h2,
+    section.app h2,
+    section.app p,
+    section.app a {
       margin: 0;
+    }
+
+    header h1 {
       font-size: 2.5em;
       color: #333;
     }
+
     header h2 {
-      margin: 10px 0 0 0;
+      margin-top: 10px;
       font-size: 1em;
     }
+
     header h2 a {
       text-decoration: none;
       color: #3498db;
     }
+
     section.app {
       text-align: center;
       margin-bottom: 30px;
     }
+
     section.app h2 {
       margin-bottom: 15px;
       color: #3498db;
       font-size: 2em;
       font-weight: bold;
     }
+
     section.app p {
       margin: 0 auto 15px auto;
       line-height: 1.5;
       color: #555;
       max-width: 700px;
     }
+
     section.app a {
       display: inline-block;
       padding: 8px 16px;
@@ -72,106 +145,394 @@
       border-radius: 5px;
       font-size: 1em;
     }
+
     section.app a:hover {
       background-color: #2980b9;
     }
   </style>
 </head>
-<body>
+<body class="lang-es">
   <div class="container">
     <header>
-      <h1>- PIANO DREAMS WEB APPS -</h1>
-      <h2><a href="https://www.youtube.com/@rafgim" target="_blank">© By Rafael Gimeno</a></h2>
+      <!-- Selector de idioma con banderitas y etiquetas CAS/ENG -->
+      <div class="lang-switcher">
+        <button id="btn-es" class="active" onclick="switchLanguage('es')">
+          <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" />
+          <span>CAS</span>
+        </button>
+        <button id="btn-en" onclick="switchLanguage('en')">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="GB" />
+          <span>ENG</span>
+        </button>
+      </div>
+
+      <!-- Títulos bilingües -->
+      <h1>
+        <span class="lang-es">- PIANO DREAMS WEB APPS -</span>
+        <span class="lang-en">- PIANO DREAMS WEB APPS -</span>
+      </h1>
+      <h2>
+        <a href="https://www.youtube.com/@rafgim" target="_blank">
+          <!-- Mostrar siempre "© By Rafael Gimeno" en ambas versiones -->
+          <span class="lang-es">© By Rafael Gimeno</span>
+          <span class="lang-en">© By Rafael Gimeno</span>
+        </a>
+      </h2>
     </header>
 
+    <!-- Dream it 1.0 -->
     <section class="app">
-      <h2>Dream it 1.0</h2>
+      <h2>
+        <span class="lang-es">Dream it 1.0</span>
+        <span class="lang-en">Dream it 1.0</span>
+      </h2>
       <p>
-        DREAM it 1.0 permite cargar archivos MIDI y al tocar las teclas del piano la canción se reproduce nota a nota siguiendo el ritmo e intensidad del usuario, dando la sensación de estar tocando el piano sin errores (Android/PC).
+        <span class="lang-es">
+          DREAM it 1.0 permite cargar archivos MIDI y al tocar las teclas del
+          piano la canción se reproduce nota a nota siguiendo el ritmo e
+          intensidad del usuario, dando la sensación de estar tocando el piano
+          sin errores (Android/PC).
+        </span>
+        <span class="lang-en">
+          DREAM it 1.0 lets you load MIDI files and, as you press the piano
+          keys, the song plays note by note following your rhythm and dynamics,
+          giving the feeling of playing the piano flawlessly (Android/PC).
+        </span>
       </p>
-      <a href="https://rafgim.github.io/" target="_blank">Abrir Dream it 1.0</a>
+      <a href="https://rafgim.github.io/" target="_blank">
+        <span class="lang-es">Abrir Dream it 1.0</span>
+        <span class="lang-en">Open Dream it 1.0</span>
+      </a>
     </section>
 
+    <!-- Dream it 2.0 -->
     <section class="app">
-      <h2>Dream it 2.0</h2>
+      <h2>
+        <span class="lang-es">Dream it 2.0</span>
+        <span class="lang-en">Dream it 2.0</span>
+      </h2>
       <p>
-        DREAM it 2.0 permite tocar sin fallos y seguir la partitura (.xml, .musicxml, .mxl) corrigiendo en tiempo real cualquier error, registrando tus aciertos y fallos y manteniendo tu dinámica original (Android/PC).
+        <span class="lang-es">
+          DREAM it 2.0 permite tocar sin fallos y seguir la partitura (.xml,
+          .musicxml, .mxl) corrigiendo en tiempo real cualquier error,
+          registrando tus aciertos y fallos y manteniendo tu dinámica original
+          (Android/PC).
+        </span>
+        <span class="lang-en">
+          DREAM it 2.0 lets you play without mistakes and follow sheet music
+          (.xml, .musicxml, .mxl), correcting any errors in real time, logging
+          your hits and misses, and preserving your original dynamics
+          (Android/PC).
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/" target="_blank">Abrir Dream it 2.0</a>
+      <a href="https://rafgim2.github.io/" target="_blank">
+        <span class="lang-es">Abrir Dream it 2.0</span>
+        <span class="lang-en">Open Dream it 2.0</span>
+      </a>
     </section>
 
+    <!-- DreamSync -->
     <section class="app">
-      <h2>DreamSync</h2>
+      <h2>
+        <span class="lang-es">DreamSync</span>
+        <span class="lang-en">DreamSync</span>
+      </h2>
       <p>
-        DreamSync mide la simultaneidad de las manos al tocar escalas, arpegios y ejercicios de Hanon en PC/Android. Registra desincronizaciones en milisegundos, muestra gráficos con resultados y guarda un historial de prácticas en cinco niveles de estudio (110 ms elemental, 80 ms básico, 50 ms intermedio, 30 ms avanzado y 15 ms profesional).
+        <span class="lang-es">
+          DreamSync mide la simultaneidad de las manos al tocar escalas,
+          arpegios y ejercicios de Hanon en PC/Android. Registra
+          desincronizaciones en milisegundos, muestra gráficos con resultados
+          y guarda un historial de prácticas en cinco niveles de estudio (110
+          ms elemental, 80 ms básico, 50 ms intermedio, 30 ms avanzado y 15 ms
+          profesional).
+        </span>
+        <span class="lang-en">
+          DreamSync measures hand synchronization when playing scales, arpeggios,
+          and Hanon exercises on PC/Android. It logs desynchronizations in
+          milliseconds, displays graphical results, and saves a practice history
+          across five study levels (110 ms elementary, 80 ms basic, 50 ms
+          intermediate, 30 ms advanced, and 15 ms professional).
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamSync/" target="_blank">Abrir DreamSync</a>
+      <a href="https://rafgim2.github.io/DreamSync/" target="_blank">
+        <span class="lang-es">Abrir DreamSync</span>
+        <span class="lang-en">Open DreamSync</span>
+      </a>
     </section>
 
+    <!-- DreamTwist -->
     <section class="app">
-      <h2>DreamTwist</h2>
+      <h2>
+        <span class="lang-es">DreamTwist</span>
+        <span class="lang-en">DreamTwist</span>
+      </h2>
       <p>
-        DreamTwist permite reproducir cualquier archivo MIDI nota a nota en un dispositivo móvil mediante movimientos de muñeca. En Android y navegadores compatibles funciona directamente; en iOS requiere la app Web MIDI Browser. Pensada para practicar sin teclado convencional, transformando gestos en sonidos.
+        <span class="lang-es">
+          DreamTwist permite reproducir cualquier archivo MIDI nota a nota en
+          un dispositivo móvil mediante movimientos de muñeca. En Android y
+          navegadores compatibles funciona directamente; en iOS requiere la app
+          Web MIDI Browser. Pensada para practicar sin teclado convencional,
+          transformando gestos en sonidos.
+        </span>
+        <span class="lang-en">
+          DreamTwist lets you play any MIDI file note by note on a mobile device
+          using wrist movements. It works natively on Android and compatible
+          browsers; on iOS, it requires the Web MIDI Browser app. Designed to
+          practice without a conventional keyboard, converting gestures into
+          sound.
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamTwist/" target="_blank">Abrir DreamTwist</a>
+      <a href="https://rafgim2.github.io/DreamTwist/" target="_blank">
+        <span class="lang-es">Abrir DreamTwist</span>
+        <span class="lang-en">Open DreamTwist</span>
+      </a>
     </section>
 
+    <!-- DreamTouch -->
     <section class="app">
-      <h2>DreamTouch</h2>
+      <h2>
+        <span class="lang-es">DreamTouch</span>
+        <span class="lang-en">DreamTouch</span>
+      </h2>
       <p>
-        DreamTouch emplea realidad aumentada para tocar paneles virtuales que aparecen superpuestos en la cámara y reproducir un archivo MIDI nota a nota. Compatible con entornos AR (por ejemplo, Meta Quest 3) y navegadores WebXR en Android/PC. El usuario “toca” en el aire y el sistema traduce los gestos en ejecución musical. En la versión móvil HTML se toca directamente en la pantalla (Android/PC/Quest 3).
+        <span class="lang-es">
+          DreamTouch emplea realidad aumentada para tocar paneles virtuales que
+          aparecen superpuestos en la cámara y reproducir un archivo MIDI nota a
+          nota. Compatible con entornos AR (por ejemplo, Meta Quest 3) y
+          navegadores WebXR en Android/PC. El usuario “toca” en el aire y el
+          sistema traduce los gestos en ejecución musical. En la versión móvil
+          HTML se toca directamente en la pantalla (Android/PC/Quest 3).
+        </span>
+        <span class="lang-en">
+          DreamTouch uses augmented reality to play virtual panels overlaid on
+          the camera feed and play a MIDI file note by note. Compatible with AR
+          environments (e.g., Meta Quest 3) and WebXR browsers on Android/PC.
+          The user “plays” in the air and the system translates gestures into
+          music. In the mobile HTML version, you tap directly on the screen
+          (Android/PC/Quest 3).
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamTouch/" target="_blank">Abrir DreamTouch</a>
+      <a href="https://rafgim2.github.io/DreamTouch/" target="_blank">
+        <span class="lang-es">Abrir DreamTouch</span>
+        <span class="lang-en">Open DreamTouch</span>
+      </a>
     </section>
 
+    <!-- DreamKeyboard -->
     <section class="app">
-      <h2>DreamKeyboard</h2>
+      <h2>
+        <span class="lang-es">DreamKeyboard</span>
+        <span class="lang-en">DreamKeyboard</span>
+      </h2>
       <p>
-        Con DreamKeyboard basta un teclado QWERTY para reproducir cualquier archivo MIDI nota a nota; al pulsar cualquier tecla se va reproduciendo el archivo MIDI. La intensidad de la nota depende de la fila de la tecla pulsada. No requiere hardware adicional más allá de un navegador Web MIDI en PC/portátil. Ideal para explorar piezas sin disponer de un teclado físico.
+        <span class="lang-es">
+          Con DreamKeyboard basta un teclado QWERTY para reproducir cualquier
+          archivo MIDI nota a nota; al pulsar cualquier tecla se va reproduciendo
+          el archivo MIDI. La intensidad de la nota depende de la fila de la
+          tecla pulsada. No requiere hardware adicional más allá de un navegador
+          Web MIDI en PC/portátil. Ideal para explorar piezas sin disponer de
+          un teclado físico.
+        </span>
+        <span class="lang-en">
+          With DreamKeyboard, a standard QWERTY keyboard is all you need to play
+          any MIDI file note by note; pressing any key will trigger the next
+          note in the MIDI file. The velocity depends on which row you press.
+          No extra hardware is required beyond a Web MIDI–enabled browser on a
+          PC/laptop. Ideal for exploring pieces without a physical keyboard.
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamKeyboard/" target="_blank">Abrir DreamKeyboard</a>
+      <a href="https://rafgim2.github.io/DreamKeyboard/" target="_blank">
+        <span class="lang-es">Abrir DreamKeyboard</span>
+        <span class="lang-en">Open DreamKeyboard</span>
+      </a>
     </section>
 
+    <!-- Dreamcolor Hue -->
     <section class="app">
-      <h2>Dreamcolor Hue</h2>
+      <h2>
+        <span class="lang-es">Dreamcolor Hue</span>
+        <span class="lang-en">Dreamcolor Hue</span>
+      </h2>
       <p>
-        Dreamcolor Hue conecta el piano (o teclado MIDI) con luces Philips Hue para que, al tocar, las lámparas cambien de color según la nota o uso del pedal. Requiere Hue Bridge y bombillas Hue, navegador Web MIDI en PC y teclado MIDI. Añade un componente visual al acto de tocar, enriqueciendo la experiencia sensorial.
+        <span class="lang-es">
+          Dreamcolor Hue conecta el piano (o teclado MIDI) con luces Philips Hue
+          para que, al tocar, las lámparas cambien de color según la nota o uso
+          del pedal. Requiere Hue Bridge y bombillas Hue, navegador Web MIDI en
+          PC y teclado MIDI. Añade un componente visual al acto de tocar,
+          enriqueciendo la experiencia sensorial.
+        </span>
+        <span class="lang-en">
+          Dreamcolor Hue connects your piano (or MIDI keyboard) to Philips Hue
+          lights so that, when you play, the lamps change color according to
+          the note or pedal use. It requires a Hue Bridge and Hue bulbs, plus a
+          Web MIDI–enabled browser on PC and a MIDI keyboard. It adds a visual
+          component to playing, enriching the sensory experience.
+        </span>
       </p>
-      <a href="https://drive.google.com/file/d/15z3-8u28tEJziBYNPLsD_mvcHGL4Z4nI/view" target="_blank">Descargar Dreamcolor Hue</a>
+      <a
+        href="https://drive.google.com/file/d/15z3-8u28tEJziBYNPLsD_mvcHGL4Z4nI/view"
+        target="_blank"
+      >
+        <span class="lang-es">Descargar Dreamcolor Hue</span>
+        <span class="lang-en">Download Dreamcolor Hue</span>
+      </a>
     </section>
 
+    <!-- DreamEcho -->
     <section class="app">
-      <h2>DreamEcho</h2>
+      <h2>
+        <span class="lang-es">DreamEcho</span>
+        <span class="lang-en">DreamEcho</span>
+      </h2>
       <p>
-        DreamEcho consiste en dos web apps: una para el pianista transmisor y otra para oyentes receptores. Transmite en tiempo real los mensajes MIDI de la interpretación, de modo que cualquier instrumento conectado reproduzca fielmente la interpretación. Permite “conciertos globales” o clases a distancia: el profesor toca y el alumno escucha en su propio piano con toda la expresividad intacta o el pianista transmite desde la sala de conciertos a todos los pianos conectados, como si estuviera tocando en miles de hogares al mismo tiempo.
+        <span class="lang-es">
+          DreamEcho consiste en dos web apps: una para el pianista transmisor y
+          otra para oyentes receptores. Transmite en tiempo real los mensajes
+          MIDI de la interpretación, de modo que cualquier instrumento conectado
+          reproduzca fielmente la interpretación. Permite “conciertos globales”
+          o clases a distancia: el profesor toca y el alumno escucha en su
+          propio piano con toda la expresividad intacta o el pianista transmite
+          desde la sala de conciertos a todos los pianos conectados, como si
+          estuviera tocando en miles de hogares al mismo tiempo.
+        </span>
+        <span class="lang-en">
+          DreamEcho consists of two web apps: one for the transmitting pianist
+          and another for the receiving listeners. It streams MIDI messages in
+          real time so that any connected instrument reproduces the performance
+          exactly. It enables “global concerts” or remote lessons: the teacher
+          plays and the student listens on their own piano with full expression
+          intact, or the pianist streams from the concert hall to all connected
+          pianos as if playing in thousands of homes simultaneously.
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DREAMECHOlistener/" target="_blank">Abrir DreamEcho</a>
+      <a href="https://rafgim2.github.io/DREAMECHOlistener/" target="_blank">
+        <span class="lang-es">Abrir DreamEcho</span>
+        <span class="lang-en">Open DreamEcho</span>
+      </a>
     </section>
 
+    <!-- DreamDynamics -->
     <section class="app">
-      <h2>DreamDynamics</h2>
+      <h2>
+        <span class="lang-es">DreamDynamics</span>
+        <span class="lang-en">DreamDynamics</span>
+      </h2>
       <p>
-        DreamDynamics te ayuda a entrenar el control de matices al tocar el piano. Conecta tu teclado y elige el matiz objetivo (pp, p, mp, mf, f o ff); la app muestra en tiempo real la intensidad de la nota en una barra de colores que indica en qué rango dinámico estás. Si te sales del rango elegido, verás una alerta y se registrará un “fallo” para que puedas revisar tu precisión. Ideal para pianistas que quieren mejorar su precisión en la intensidad y entrenar oídos y dedos en el control del sonido.
+        <span class="lang-es">
+          DreamDynamics te ayuda a entrenar el control de matices al tocar el
+          piano. Conecta tu teclado y elige el matiz objetivo (pp, p, mp, mf, f
+          o ff); la app muestra en tiempo real la intensidad de la nota en una
+          barra de colores que indica en qué rango dinámico estás. Si te sales
+          del rango elegido, verás una alerta y se registrará un “fallo” para
+          que puedas revisar tu precisión. Ideal para pianistas que quieren
+          mejorar su precisión en la intensidad y entrenar oídos y dedos en el
+          control del sonido.
+        </span>
+        <span class="lang-en">
+          DreamDynamics helps you train dynamic control when playing the piano.
+          Connect your keyboard and choose the target dynamic (pp, p, mp, mf,
+          f, or ff); the app shows the note’s velocity in real time on a color
+          bar indicating which dynamic range you’re in. If you leave the chosen
+          range, you’ll see an alert and a “miss” will be logged so you can
+          review your accuracy. Ideal for pianists who want to improve their
+          dynamic precision and train both ears and fingers for sound control.
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamDynamics/" target="_blank">Abrir DreamDynamics</a>
+      <a href="https://rafgim2.github.io/DreamDynamics/" target="_blank">
+        <span class="lang-es">Abrir DreamDynamics</span>
+        <span class="lang-en">Open DreamDynamics</span>
+      </a>
     </section>
 
+    <!-- DreamPitch -->
     <section class="app">
-      <h2>DreamPitch</h2>
+      <h2>
+        <span class="lang-es">DreamPitch</span>
+        <span class="lang-en">DreamPitch</span>
+      </h2>
       <p>
-        DreamPitch es un juego de entrenamiento auditivo en el que debes reconocer 10 notas en el piano aleatorias. Se registran los errores y el tiempo que tardas en cada acierto y la puntuación final se calcula como: 100 – (número de errores) – (tiempo medio en segundos). Después se registra junto con la de otros jugadores en una tabla clasificatoria online.
+        <span class="lang-es">
+          DreamPitch es un juego de entrenamiento auditivo en el que debes
+          reconocer 10 notas en el piano aleatorias. Se registran los errores y
+          el tiempo que tardas en cada acierto y la puntuación final se calcula
+          como: 100 – (número de errores) – (tiempo medio en segundos). Después
+          se registra junto con la de otros jugadores en una tabla
+          clasificatoria online.
+        </span>
+        <span class="lang-en">
+          DreamPitch is an ear-training game where you must identify 10 random
+          piano notes. Errors and the time taken for each correct guess are
+          recorded, and the final score is calculated as: 100 – (number of
+          errors) – (average time in seconds). Then your score is submitted
+          alongside others in an online leaderboard.
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamPitch/" target="_blank">Abrir DreamPitch</a>
+      <a href="https://rafgim2.github.io/DreamPitch/" target="_blank">
+        <span class="lang-es">Abrir DreamPitch</span>
+        <span class="lang-en">Open DreamPitch</span>
+      </a>
     </section>
 
+    <!-- DreamJazz -->
     <section class="app">
-      <h2>DreamJazz</h2>
+      <h2>
+        <span class="lang-es">DreamJazz</span>
+        <span class="lang-en">DreamJazz</span>
+      </h2>
       <p>
-        DreamJazz es una aplicación web interactiva que transforma tu teclado MIDI en un “teclado diatónico” adaptado al acorde o escala que elijas. Con un diseño intuitivo de botones táctiles para seleccionar raíz y tipo de escala, DreamJazz remapea automáticamente las teclas blancas para que solo suenen notas válidas según el modo seleccionado, evitando errores armónicos y facilitando la improvisación. Ideal para aprender armonía, explorar diferentes sonoridades (mayor, menor, pentatónica, blues, alterada, etc.).
+        <span class="lang-es">
+          DreamJazz es una aplicación web interactiva que transforma tu teclado
+          MIDI en un “teclado diatónico” adaptado al acorde o escala que elijas.
+          Con un diseño intuitivo de botones táctiles para seleccionar raíz y
+          tipo de escala, DreamJazz remapea automáticamente las teclas blancas
+          para que solo suenen notas válidas según el modo seleccionado,
+          evitando errores armónicos y facilitando la improvisación. Ideal para
+          aprender armonía, explorar diferentes sonoridades (mayor, menor,
+          pentatónica, blues, alterada, etc.).
+        </span>
+        <span class="lang-en">
+          DreamJazz is an interactive web app that transforms your MIDI keyboard
+          into a “diatonic keyboard” adapted to the chord or scale you choose.
+          With an intuitive touch-button interface for selecting the root and
+          scale type, DreamJazz automatically remaps the white keys so that only
+          valid notes play according to the chosen mode, preventing harmonic
+          mistakes and facilitating improvisation. Ideal for learning harmony
+          and exploring different sounds (major, minor, pentatonic, blues,
+          altered, etc.).
+        </span>
       </p>
-      <a href="https://rafgim2.github.io/DreamJazz/" target="_blank">Abrir DreamJazz</a>
+      <a href="https://rafgim2.github.io/DreamJazz/" target="_blank">
+        <span class="lang-es">Abrir DreamJazz</span>
+        <span class="lang-en">Open DreamJazz</span>
+      </a>
     </section>
-
   </div>
+
+  <script>
+    function switchLanguage(lang) {
+      const body = document.body;
+      const btnEs = document.getElementById("btn-es");
+      const btnEn = document.getElementById("btn-en");
+
+      if (lang === "es") {
+        body.classList.add("lang-es");
+        body.classList.remove("lang-en");
+        btnEs.classList.add("active");
+        btnEn.classList.remove("active");
+        document.documentElement.lang = "es";
+      } else {
+        body.classList.add("lang-en");
+        body.classList.remove("lang-es");
+        btnEn.classList.add("active");
+        btnEs.classList.remove("active");
+        document.documentElement.lang = "en";
+      }
+    }
+
+    // Iniciar siempre en español
+    document.addEventListener("DOMContentLoaded", function () {
+      switchLanguage("es");
+    });
+  </script>
 </body>
 </html>
